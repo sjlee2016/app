@@ -34,7 +34,7 @@ thumbnail
     background: #9d3ab1e1;
 }
 body{
-    background:url("sky.jpeg");
+    background:url("images/sky.jpeg");
     background-size: cover;
     background-position: center;
 }
