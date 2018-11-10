@@ -2,7 +2,7 @@
  var request = require("request");
  var app = express();
  app.set("view engine" ,"ejs");
- 
+ app.use('/public', express.static('public'));
  app.get("/",function(req,res){
 	res.render("default");
  });
@@ -11,15 +11,15 @@
 	res.render("blog");
  });
 
- app.get("/blog/:post", function(req,res){  
+ app.get("/blog/:post", function(req,res){
 	var post = req.params.post;
-	res.render("post" + post, {post:post}); 
+	res.render("post" + post, {post:post});
 });
 
  app.get("/resume", function(req,res){
- 	res.render("resume"); 
+ 	res.render("resume");
 });
  app.listen(3000, process.env.VIP, function(){
 
-	console.log("server listening.."); 
+	console.log("server listening..");
  });

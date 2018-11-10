@@ -1,0 +1,53 @@
+#content{
+    text-align: center;
+    padding-top:25%;
+    font-family:'Chakra Petch', sans-serif;
+    color:black;
+    text-shadow: 0px 4px 3px orange,
+                 0px 8px 13px rgba(31, 77, 107, 0.1)
+                 0px 18px 23px rgba(57, 121, 20, 0.8);
+}
+.button.btn-default
+{
+    color:black;
+    background-color: black;
+}
+a{
+    color:white;
+}
+thumbnail
+{
+    color:transparent;
+}
+.btn-default
+{
+    color:black;
+}
+.btn-warning
+{
+    background-color:rgba(185, 37, 214, 0.883);
+    color:white;
+    border-block-end-color:rgba(185, 37, 214, 0.883);
+    
+}
+.btn-warning:hover{
+    background: #9d3ab1e1;
+}
+body{
+    background:url("sky.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+html{
+    height:100%;
+}
+h1{
+    font-weight: 700;
+    font-size:5em;
+}
+
+hr{
+    width:400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
