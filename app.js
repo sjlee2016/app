@@ -3,7 +3,8 @@
  var app = express();
  app.set("view engine" ,"ejs");
  app.use('/public', express.static('public'));
-
+ app.use('/css', express.static('css'));
+ app.use('/vendor', express.static('vendor'));
  app.use('/images', express.static('/images'));
  app.get("/",function(req,res){
 	res.render("default");
