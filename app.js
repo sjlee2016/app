@@ -5,13 +5,13 @@
  app.use('/public', express.static('public'));
  app.use('/css', express.static('css'));
  app.use('/vendor', express.static('vendor'));
- app.use('/images', express.static('/images'));
+ app.use('/images', express.static('public/images'));
  app.get("/",function(req,res){
 	res.render("default");
  });
 
  app.get("/blog", function(req,res){
-	 return res.redirect('/blog/page/0/5');
+	 return res.redirect('/blog/page/1/5');
  });
 
  app.get("/blog/page/:first/:last", function(req,res)
@@ -19,20 +19,24 @@
 	request("https://blog-8c770.firebaseio.com/post.json", function(error, response, body)
 	{
 		var posts = JSON.parse(body);
-		console.log(posts);
-
-		var first = parseInt(req.param.first);
+		var next = false;
+		var first = parseInt(req.params.first);
 		var last = parseInt(req.params.last);
-		if(last > posts["total"]) {
+		if(last > parseInt(posts["total"])) {
 			last = parseInt(posts["total"]);
 		}
-		console.log("first : " + first);
-		console.log("last : " + last);
+		if(last < parseInt(posts["total"]))
+		{
+			next = true; 
+		}
+		console.log("first : " + parseInt(first));
+		console.log("last : " + parseInt(last));
 		
 		res.render("blog", {
 			posts:posts, 
 			first:first,
-			last:last
+			last:last,
+			next:next
 		});
 	});
  });
