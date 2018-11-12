@@ -1,39 +1,28 @@
 <% include partials/header_blog %>
-
-
     <!-- Main Content -->
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
-            <a href="post_2018_10_29.html">
+            <% for(let i = first + 1 ; i < last ; i++ )  { %> 
+             <% var date = posts["post1"]["data"]; %> 
+            <a href=  "/post/" action="get" >
               <h2 class="post-title">
-               요즘 저는 이렇게 지내요
-              </h2>
+                  <%= posts["post" + i]["title"] %>
+               </h2>
               <h3 class="post-subtitle">
-                벌써 한 달의 인턴생활 그리고 느낀 것
+                 <%= posts["post" + i]["description"] %>
               </h3>
             </a>
-            <p class="post-meta">Posted by
-              <a href="journal.html">Se Jin</a>
-              on August 24, 2018</p>
-          <div class="post-preview">
-              <a href="post_2018_08_24.html">
-                <h2 class="post-title">
-                 실리콘벨리 인턴십 합격후기
-                </h2>
-                <h3 class="post-subtitle">
-                    컴퓨터공학을 전공하는 대학생이라면 모두가 꿈꾸는 실리콘벨리
-                </h3>
-              </a>
-              <p class="post-meta">Posted by
-                <a href="journal.html">Se Jin</a>
-                on August 24, 2018</p>
-          </div>
+            <p class="post-meta">Posted btn-primary
+              <a href= " " action="get">Se Jin</a>
+            on  <%= posts["post" + i]["data"] %>
+           </p>
+            <% } %>
           </div>
           <!-- Pager -->
           <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+            <a class="btn btn-primary float-right" href="/post/start/" + >Older Posts &rarr;</a>
           </div>
         </div>
       </div>
