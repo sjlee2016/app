@@ -6,7 +6,8 @@
           <div class="post-preview">
             <% for(let i = first ; i <= last ; i++ )  { %> 
              <% var date = posts["post" + i]["data"]; %> 
-            <a href=  "/post/" action="get" >
+             <% var post_id = "/blog/post/" + posts["post" + i ]["id"]; %>
+            <a href= <%=post_id %>  action="get" >
               <h2 class="post-title">
                   <%= posts["post" + i]["title"] %>
                </h2>
