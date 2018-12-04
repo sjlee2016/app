@@ -6,6 +6,7 @@
  app.use('/css', express.static('css'));
  app.use('/vendor', express.static('vendor'));
  app.use('/images', express.static('public/images'));
+ app.use('/common-js', express.static('common-js'));
  app.get("/",function(req,res){
 	res.render("default");
  });
@@ -25,13 +26,9 @@
 		if(last > parseInt(posts["total"])) {
 			last = parseInt(posts["total"]);
 		}
-		if(last < parseInt(posts["total"]))
-		{
+		if(last < parseInt(posts["total"])){
 			next = true; 
 		}
-		console.log("first : " + parseInt(first));
-		console.log("last : " + parseInt(last));
-		
 		res.render("blog", {
 			posts:posts, 
 			first:first,
