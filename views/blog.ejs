@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
-            <% for(let i = first ; i < last ; i++ )  { %> 
+            <% for(let i = first ; i <= last ; i++ )  { %> 
              <% var date = posts["post" + i]["data"]; %> 
             <a href=  "/post/" action="get" >
               <h2 class="post-title">
@@ -14,8 +14,7 @@
                  <%= posts["post" + i]["description"] %>
               </h3>
             </a>
-            <p class="post-meta">Posted btn-primary
-              <a href= " " action="get">Se Jin</a>
+            <p class="post-meta">Posted by Se Jin</a>
             on  <%= posts["post" + i]["data"] %>
            </p>
             <% } %>
