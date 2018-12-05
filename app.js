@@ -37,9 +37,17 @@
 		});
 	});
  });
- app.get("/blog/:post", function(req,res){
-	var post = req.params.post;
-	res.render("post" + post, {post:post});
+ app.get("/blog/post/:postnum/", function(req,res){
+	console.log(parseInt(req.params.postnum));
+	var url = "https://blog-8c770.firebaseio.com/post/post"+parseInt(req.params.postnum) + ".json";
+	console.log(url);
+	request(url, function(error, response, body)
+	{
+		console.log(body);
+		var post = JSON.parse(body);
+		console.log(post);
+		res.render("post", {post:post});
+	});
 });
 
  app.get("/resume", function(req,res){
