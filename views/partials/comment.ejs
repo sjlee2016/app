@@ -1,3 +1,4 @@
+
 <% comments.forEach(function(comment) { %> 
 <div class="row bootstrap snippets">
     <div class="col-md-6 col-md-offset-2 col-sm-12">
@@ -5,14 +6,11 @@
             <div class="panel panel-info">
                     <ul class="media-list">
                         <li class="media">
-                            <a href="#" class="pull-left">
-                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
-                            </a>
                             <div class="media-body">
-                                <span class="text-muted pull-right">
-                                    <small class="text-muted">30 min ago</small>
-                                </span>
                                 <strong class="text-success"> <%= comment.name %> </strong>
+                                <span class="text-muted pull-right">
+                                    <small class="text-muted"> <%= comment.formated_date %>  </small>
+                                </span>
                                 <p>
                                     <%= comment.comment %>  
                                 </p>
@@ -28,8 +26,21 @@
 
 <% var link = "/comment/" + postnum %> 
 <form action= <%= link %> method="post"> 
-    <input type="text" placeholder="name" name="name" id="name">   </input>
-    <input type="text" placeholder="email" name="email" id="email">  </input>
-    <input type="text" placeholder="comment" name="comment" id="comment">  </input>
-    <button type="submit">Submit</button>
-</form>
+    <div class="row">
+          <div class="form-group" id="name">
+         <label for="name" id ="name-text">Name</label>
+        <input type="text" class="form-control" placeholder="name" name="name" id="name">   </input>
+         </div>
+    <div class="form-group" id="email">
+      <label for="email" id = "email-text" >Email</label>
+    <input type="text"  class="form-control" placeholder="email" name="email" id="email">  </input>
+    </div>
+</div>
+
+</div>
+    <div class="form-group" id="comment">
+            <label for="comment">Comment</label>
+              <input type="text"  class="form-control" placeholder="Your opinion?" name="comment" id="comment">  </input>
+          </div>
+    <button type="submit" class="btn btn-default" id="submit">Submit</button>
+  </form>

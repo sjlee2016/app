@@ -4,6 +4,8 @@
  var bodyParser = require("body-parser");
  var app = express();
 
+ var moment = require('moment');
+
  app.set("view engine" ,"ejs");
  app.use('/public', express.static('public'));
  app.use('/css', express.static('css'));
@@ -16,6 +18,8 @@
 
 
  var commentSchema = new mongoose.Schema({
+	posted :  Date,
+	formated_date : String, 
 	postnum : Number, 
 	name : String,
 	email : String,
@@ -60,12 +64,14 @@
 	request(url, function(error, response, body)
 	{
 		var post = JSON.parse(body);
-		Comment.find({ postnum: postid}, function(err,comments){
+		Comment
+		.find({ postnum: postid})
+		.sort({'posted' : -1 } )
+		.limit(5) 
+		.exec(function(err,comments){
 			if(err){
-				console.log("post id = " + postid); 
 				console.log("error finding comments for post " + postid);
 			}else{
-				console.log(comments);
 				res.render("post", {post:post, postnum : postid, comments : comments });
 			}
 		});
@@ -73,7 +79,10 @@
 });
 app.post("/comment/:postnum", function(req,res){
 	var postid = req.params.postnum; 
-	Comment.create({ postnum : postid, 
+	var timestamp = new Date();
+	Comment.create({ posted : timestamp,
+					 formated_date:	moment(timestamp).format('YYYY-DD-MM'), 
+					 postnum : postid, 
 					 name: req.body.name,
 					 email: req.body.email,
 					 comment: req.body.comment
@@ -81,8 +90,6 @@ app.post("/comment/:postnum", function(req,res){
 		if(err){
 			console.log("error in creating new comment");
 		}else{
-			console.log(newComment); 
-			console.log("post id is " + postid); 
 			res.redirect("/blog/post/"+ postid); 
 		}
 

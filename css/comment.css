@@ -1,0 +1,34 @@
+label#email-text{
+    color:red;
+}
+div#name.form-group{
+
+    margin-bottom:5px;
+    margin-left:50px;
+    margin-right:5px;
+}
+
+
+div#email.form-group{
+
+    margin-bottom:5px;
+    margin-left:50px;
+    margin-right:5px;
+}
+
+div#comment.form-group{
+
+    margin-top:15px;
+    margin-bottom:5px;
+    margin-left: 35px;
+    margin-right:5px;
+}
+
+input#comment.form-control{
+    width: 43%;
+    height: calc(7.5rem + 2px);
+}
+
+button#submit.btn{
+    padding-left: 400px;
+}
