@@ -13,7 +13,11 @@
 
  var seedDB = require("./seed");
  seedDB(); 
- var app = express();
+ 
+ var app = express(),
+	  passport = require("passport"),
+	  LocalStrategy = require("passport-local"),
+	  User = require("./models/user");
  app.set("view engine" ,"ejs");
  app.use('/public', express.static('public'));
  app.use('/css', express.static('css'));
@@ -22,6 +26,20 @@
  app.use('/common-js', express.static('common-js'));
  app.use(bodyParser.urlencoded({extended:false}));
  app.use(express.json());
+
+ // PASSPORT CONFIGURATION
+ app.use(require("express-session")({
+	secret : "this blog is made by se jin lee",
+	resave : false,
+	saveUninitialized: false
+})); 
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
  app.get("/",function(req,res){
 	res.render("default");
@@ -64,7 +82,7 @@
 			});
 	
 });
-app.post("/comment/:id", function(req,res){
+app.post("/comment/:id", isLoggedIn, function(req,res){
 	var postid = req.params.id; 
 	Post.findById(req.params.id, function(err,post){
 
@@ -91,6 +109,62 @@ app.post("/comment/:id", function(req,res){
  app.get("/resume", function(req,res){
  	res.render("resume");
 });
+
+
+// AUTH
+
+app.get("/register", function(req, res){
+	res.render("register");
+});
+
+app.post("/register", function(req,res){
+	req.body.username 
+    req.body.password
+	User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+        if(err){
+            console.log(err);
+            return res.redirect("register");
+        }
+        passport.authenticate("local")(req,res,function(){
+            res.redirect("/blog");
+        });
+    });
+});
+
+
+app.get("/login", function(req, res){
+	res.render("login");
+});
+
+app.post("/login", passport.authenticate("local", 
+   {
+	   successRedirect : "/", 
+	   failureRedirect : "/login"
+	}), function(req,res){
+	req.body.username 
+    req.body.password
+	User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+        if(err){
+            console.log(err);
+            return res.redirect("register");
+        }
+        passport.authenticate("local")(req,res,function(){
+            res.redirect("/blog");
+        });
+    });
+});
+
+app.get("/logout", function(req,res){
+	req.logout();
+    res.redirect("/");
+});
+
+function isLoggedIn(req,res,next){
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+}
 
 
  app.listen(3000, process.env.VIP, function(){
