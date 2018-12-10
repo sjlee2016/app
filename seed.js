@@ -31,42 +31,49 @@ function seedDB(){
         if(err){
             console.log(err);
         }
-        console.log("removed posts!");
-        Comment.remove({}, function(err) {
-            if(err){
-                console.log(err);
-            }
-            console.log("removed comments!");
-             //add a few posts
-            data.forEach(function(seed){
-                Post.create(seed, function(err, campground){
-                    if(err){
-                        console.log(err)
-                    } else {
+         console.log("removed posts!");
+         Comment.remove({}, function(err) {
+             if(err){
+                 console.log(err);
+             }
+             console.log("removed comments!");
+              //add a few posts
+             data.forEach(function(seed){
+                 Post.create(seed, function(err, campground){
+                     if(err){
+                         console.log(err)
+                     } else {
                         console.log("added a post");
-                        //create a comment
-                        Comment.create(
-                            {
-                                posted: new Date(),
-                                formated_date: moment(new Date()).format('YYYY-MM-DD') ,
-                                text: "this is great",
-                                User: "Homer",
-                                email: "example"
-                            }, function(err, comment){
-                                if(err){
-                                    console.log(err);
-                                } else {
-                                    campground.comments.push(comment);
-                                    campground.save();
-                                    console.log("Created new comment");
-                                }
-                            });
-                    }
-                });
-            });
+                     }
+                    });
+                }
+            );
         });
-    }); 
-    //add a few comments
+    });
 }
+                         //create a comment
+        //                 Comment.create(
+        //                     {
+        //                         posted: new Date(),
+        //                         formated_date: moment(new Date()).format('YYYY-MM-DD') ,
+        //                         text: "this is great",
+        //                         User: "Homer",
+        //                         email: "example"
+        //                     }, function(err, comment){
+        //                         if(err){
+        //                             console.log(err);
+        //                         } else {
+        //                             campground.comments.push(comment);
+        //                             campground.save();
+        //                             console.log("Created new comment");
+        //                         }
+        //                     });
+        //             }
+        //         });
+        //     });
+        // });
+     
+    //add a few comments
+
  
 module.exports = seedDB;

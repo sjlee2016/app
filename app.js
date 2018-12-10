@@ -42,7 +42,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
  app.get("/",function(req,res){
-	res.render("default");
+	res.render("default", { currentUser: req.user});
  });
 
  app.get("/blog", function(req,res){
@@ -72,6 +72,7 @@ passport.deserializeUser(User.deserializeUser());
 	});
 }		
 );
+
  app.get("/blog/post/:id/", function(req,res){
 	 Post.findById(req.params.id).populate("comments").exec(function(err, post){
 				if(err){
@@ -91,15 +92,17 @@ app.post("/comment/:id", isLoggedIn, function(req,res){
 		{
 			posted: timestamp,
 			formated_date: moment(timestamp).format('YYYY-MM-DD') ,
-			text: req.body.comment,
-			User: req.body.name,
-			email: req.body.email
+			text: req.body.comment
 		}, function(err, comment){
 			if(err){
 				console.log(err);
 			} else {
+				comment.author.id = req.user.id;
+				comment.author.username = req.user.username;
+				comment.save();
 				post.comments.push(comment);
 				post.save();
+				console.log(comment);
 				res.redirect("/blog/post/"+ postid); 
 			}
 		});
@@ -110,6 +113,26 @@ app.post("/comment/:id", isLoggedIn, function(req,res){
  	res.render("resume");
 });
 
+app.get("/post/:id/comment/:comment_id/edit", function(req,res){
+	Comment.findById(req.params.comment_id, function(err,foundComment){
+		if(err){
+			res.redirect("/");
+		}else{
+			res.render("editComment", {id: req.params.id, comment: foundComment});
+		}
+	})
+});
+
+app.post("/post/:id/comment/:comment_id/edit", function(req,res){
+	Comment.findByIdAndUpdate(req.params.comment_id, { text: req.body.comment} , function(err,updatedComment){
+		if(err){
+			res.redirect("/");
+		}else{
+			console.log("updated : " + updatedComment);
+			res.redirect("/blog/post/"+req.params.id);
+		}
+	});
+});
 
 // AUTH
 
@@ -159,6 +182,10 @@ app.get("/logout", function(req,res){
     res.redirect("/");
 });
 
+app.use(function(req,res,next){
+	res.locals.currentUser = req.user;
+	next();
+})
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated()){
 		return next();

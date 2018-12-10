@@ -1,0 +1,9 @@
+<% include partials/post_header %>
+<form action= "/post/<%=id%>/comment/<%=comment._id%>/edit" method="post"> 
+        <div class="form-group" id="comment">
+                <label for="comment">Comment</label>
+                  <input type="text"  class="form-control" placeholder="Your opinion?" name="comment" id="comment" required>  </input>
+            </div>
+        <button type="submit" class="btn btn-default" id="submit">Submit</button>
+      </form>
+<% include partials/post_footer %>

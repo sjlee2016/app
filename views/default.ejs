@@ -18,11 +18,13 @@
      <ul class="nav navbar-nav">
         <li> <a href="/resume" method="get"> <span class="glyphicon glyphicon-education" aria-hidden="true"> </span>My Resume </a></li>
         <li> <a href="/blog" method="get"> <span class="glyphicon glyphicon-book" aria-hidden="true"> </span> Journal </a></li>
+        <% if(!currentUser) {  %>
         <li> <a href="/register" method="get"> <span class="glyphicon glyphicon-book" aria-hidden="true"> </span> Register </a></li>
 
         <li> <a href="/login" method="get"> <span class="glyphicon glyphicon-book" aria-hidden="true"> </span> Login </a></li>
-
+        <% } else { %>
         <li> <a href="/logout" method="get"> <span class="glyphicon glyphicon-book" aria-hidden="true"> </span> Log out </a></li>
+        <% } %> 
     </ul>
     </div>
 </div>
@@ -31,6 +33,9 @@
 <div class="row">
 <div class="col-lg-12">
     <div id="content">
+    <% if(currentUser){ %> 
+      <h1> Hi, <%= currentUser.username  %> </h1>
+    <% } %> 
     <h1>Welcome to Se Jin's Website</h1>
     <h3>A Programmer who writes journals</h3>
     <hr>

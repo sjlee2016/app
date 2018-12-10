@@ -6,14 +6,15 @@
             <div class="panel panel-info">
                     <ul class="media-list">
                         <li class="media">
-                            <div class="media-body">
-                                <strong class="text-success"> <%= comment.User %> </strong>
+                           <div class="media-body">
+                                <strong class="text-success"> <%= comment.author.username %> </strong>
                                 <span class="text-muted pull-right">
                                     <small class="text-muted"> <%= comment.formated_date %>  </small>
                                 </span>
                                 <p>
                                     <%= comment.text %>  
                                 </p>
+                                <a class="btn btn-xs btn-warning" href="/post/<%=post._id%>/comment/<%=comment._id%>/edit" method="get">Edit</a>
                             </div>
                         </li>
                     </ul>
@@ -25,21 +26,9 @@
 <% }); %> 
 <% var link = "/comment/" + post._id %> 
 <form action= <%= link %> method="post"> 
-    <div class="row">
-          <div class="form-group" id="name">
-         <label for="name" id ="name-text">Name</label>
-        <input type="text" class="form-control" placeholder="name" name="name" id="name" required>   </input>
-         </div>
-    <div class="form-group" id="email">
-      <label for="email" id = "email-text" >Email</label>
-    <input type="text"  class="form-control" placeholder="email" name="email" id="email" required>  </input>
-    </div>
-</div>
-
-</div>
     <div class="form-group" id="comment">
             <label for="comment">Comment</label>
               <input type="text"  class="form-control" placeholder="Your opinion?" name="comment" id="comment" required>  </input>
-          </div>
+        </div>
     <button type="submit" class="btn btn-default" id="submit">Submit</button>
   </form>

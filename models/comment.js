@@ -4,8 +4,13 @@ var commentSchema = mongoose.Schema({
     posted: Date,
     formated_date: String,
     text: String,
-    User: String,
-    email: String
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        username: String
+    }
 });
 
 module.exports = mongoose.model("Comment", commentSchema); 
