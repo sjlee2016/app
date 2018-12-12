@@ -1,4 +1,17 @@
-<% include partials/post_header %>
+<% include partials/edit_header %>
+<div class="message">
+    <% if(error && error.length > 0) { %>
+  <div class="alert alert-danger" role="alert"> 
+    <%= error %> 
+  </div>
+   <% } %>
+   <% if(success && success.length > 0) { %> 
+  <div class="alert alert-success" role="alert"> 
+    <%= success %> 
+  </div>
+   <% } %> 
+</div>
+<div class="editcomment">
 <form action= "/post/<%=id%>/comment/<%=comment._id%>/edit" method="post"> 
         <div class="form-group" id="comment">
                 <label for="comment">Comment</label>
@@ -6,4 +19,5 @@
             </div>
         <button type="submit" class="btn btn-default" id="submit">Submit</button>
       </form>
+</div>
 <% include partials/post_footer %>

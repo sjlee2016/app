@@ -1,9 +1,29 @@
 <% include partials/header %>
-<h1> Sign up form </h1>
+<div class="message">
+        <% if(error && error.length > 0) { %>
+      <div class="alert alert-danger" role="alert"> 
+        <%= error %> 
+      </div>
+       <% } %>
+       <% if(success && success.length > 0) { %> 
+      <div class="alert alert-success" role="alert"> 
+        <%= success %> 
+      </div>
+       <% } %> 
+  </div>
+<div class="container">
+        <div class="row">
+        <div class="col-lg-12">
+            <div id="content">
+                <h1> Sign up ! </h1>
+                    <form action="/register" method="post">
+                        <input type="text" name="username" placeholder="username">
+                        <input type="password" name="password" placeholder="password">
+                        <button>Submit </button>
+                    </form>
+        </div>
+        </div>
+        </div>
+    </div>
 
-<form action="/register" method="post">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Submit </button>
-</form>
 <% include partials/footer %>
