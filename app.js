@@ -172,7 +172,7 @@ app.post("/register", function(req,res){
 	User.register(new User({username: req.body.username}), req.body.password, function(err, user){
         if(err){
 			req.flash("error", "이미 같은 이름을 가진 유저가 있습니다");
-            res.redirect("/register");
+            res.redirect("/");
         }else {
         passport.authenticate("local")(req,res,function(){
 			req.flash("success", "가입을 축하드립니다!");
@@ -231,7 +231,6 @@ function checkCommentOwnership (req,res,next){
 	if(req.isAuthenticated()){
 		Comment.findById(req.params.comment_id, function(err, foundComment){
 			if(err){
-				req.flash("error", "자신의 코멘트만 수정 가능합니다.");
 				res.redirect("back");
 			}else{
 				if(foundComment.author.id.equals(req.user.id)){
