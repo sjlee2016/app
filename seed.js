@@ -4,22 +4,15 @@ var Post = require("./models/post");
 var Comment   = require("./models/comment");
 var date1 = new Date(2018,9,24),
     date2 = new Date(2018,10,29);
+    date3 = new Date(2018,11,14);
 var data = [
     {
-        title: "실리콘벨리 인턴십 합격후기",
-        image: "siliconValley.png",
-        description : "컴퓨터공학을 전공하는 대학생이라면 모두가 꿈꾸는 실리콘벨리",
+        title: "교환학생 vs 퍼듀 캡스톤 프로그램 vs 인턴십",
+        image: "california.jpg",
+        description :  "내가 개인적으로 느낀 각 프로그램의 장단점",
         author : "Se Jin Lee",
-        posted : date1,
-        formated_date : moment(date1).format('YYYY-MM-DD') 
-    },
-    {
-        title: "한 달의 인턴생활 그리고 느낀 것",
-        image: "morning.jpg",
-        description :  "요즘 저는 이렇게 지냈어요",
-        author : "Se Jin Lee",
-        posted : date2,
-        formated_date : moment(date2).format('YYYY-MM-DD') 
+        posted : date3,
+        formated_date : moment(date3).format('YYYY-MM-DD') 
     
     }
 ]
@@ -27,16 +20,6 @@ var data = [
 
 function seedDB(){
    //Remove all campgrounds
-   Post.remove({}, function(err){
-        if(err){
-            console.log(err);
-        }
-         console.log("removed posts!");
-         Comment.remove({}, function(err) {
-             if(err){
-                 console.log(err);
-             }
-             console.log("removed comments!");
               //add a few posts
              data.forEach(function(seed){
                  Post.create(seed, function(err, campground){
@@ -48,8 +31,8 @@ function seedDB(){
                     });
                 }
             );
-        });
-    });
+      
+        
 }
                          //create a comment
         //                 Comment.create(

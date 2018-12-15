@@ -32,8 +32,3 @@ input#comment.form-control{
 button#submit.btn{
     padding-left: 400px;
 }
-
-div.editcomment{
-    padding-top : 10%;
-    margin-top:15px;
-}

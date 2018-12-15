@@ -12,7 +12,7 @@
  var Post = require("./models/post");
 
  var seedDB = require("./seed");
- // seedDB(); 
+ //seedDB(); 
  
  var app = express(),
 	  passport = require("passport"),
