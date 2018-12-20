@@ -121,6 +121,16 @@ app.post("/comment/:id", isLoggedIn, function(req,res){
  	res.render("resume");
 });
 
+app.get("/me", function(req,res){
+	res.render("aboutme");
+	const scroll = new SmoothScroll('a[href*="#"]',{
+		speed:1000,
+		updateURL:false,
+		offset:100
+	});
+
+});
+
 app.get("/post/:id/comment/:comment_id/edit", isLoggedIn, function(req,res){
 	Comment.findById(req.params.comment_id, function(err,foundComment){
 		if(err){
@@ -251,3 +261,5 @@ function checkCommentOwnership (req,res,next){
 
 	console.log("server listening..");
  });
+
+ 

@@ -1,0 +1,239 @@
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: 'Poppins', sans-serif;
+    --font-family-text : 'Roboto' , sans-serif;
+    --font-family-heading: var(--font-family-sans-serif);
+    
+}
+
+body{
+    font-family: var(--font-family-text);
+    font-weight : 300;
+    font-size: 1.2rem;
+}
+
+.pt-7{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+
+h2{
+    font-family: var(--font-family-heading);
+    font-weight: 900;
+    color: var(--purple);
+    font-size:2rem;
+}
+.white-text{
+    color:var(--white);
+}
+
+.bg-gradient{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e570e7+0,c85ec7+47,6f42c1+100 */
+background: #e570e7; /* Old browsers */
+background: -moz-linear-gradient(top, #e570e7 0%, #c85ec7 47%, #6f42c1 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #e570e7 0%,#c85ec7 47%,#6f42c1 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #e570e7 0%,#c85ec7 47%,#6f42c1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e570e7', endColorstr='#6f42c1',GradientType=0 ); /* IE6-9 */
+}
+
+@media(mind-width:768px){
+    h2{
+        font-size:4rem;
+    }
+}
+.site-header{
+    min-height : 900px;
+    background-image: url("/public/images/sky.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.main-navigation a{
+    color : var(--white);
+    font-size: 1.4rem;
+}
+
+.main-navigation a:hover{
+    color : var(--blue);
+}
+/** EVENT INFO **/
+@media(min-width:768px){
+.event-info{
+    margin-top:15rem;
+}
+}
+.center{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  width: 50%;
+}
+.event-info p {
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.event-numbers{
+    color:var(--white);
+}
+/* EVENT NUMBER */
+.event-numbers .display-4 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: .7;
+    padding-bottom: 1rem;
+}
+
+.event-numbers > div {
+    margin-bottom:2rem;
+}
+@media(min-width:992px){
+    .event-numbers .display-4 {
+        font-size: 6rem;
+    }
+}
+.event-numbers span{
+    font-size: 2rem;
+    color:var(--white);
+    font-weight:300;
+}
+
+.event-numbers span::before{
+    content: ' ';
+    display: table;
+    clear:both;
+}
+
+.event-numbers .conference{
+    color: var(--yellow);
+}
+
+.event-numbers .workshop{
+    color:var(--blue);
+}
+.event-numbers .day{
+    color:var(--green);
+}
+
+/**buttons*/
+
+.categories .btn{
+    border-radius:0!important;
+    width:100%;
+    color:black;
+    background-color:white;
+    border:none;
+    font-size:1.4;
+    margin-bottom: 1.8rem;
+    font-weight: 700;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+}
+@media (min-width:992px){
+    .categories .btn{
+        width:auto;
+        margin-right: 2rem;
+    }
+    .categories .btn:last-of-type{
+        margin-right:0;
+    }
+}
+
+.categories .btn-primary{
+    border-left : 10px solid var(--blue);
+}
+
+
+.categories .btn-success{
+    border-left : 10px solid var(--green);
+}
+
+.categories .btn-info{
+    border-left : 10px solid var(--purple);
+}
+
+.categories .btn-warning{
+    border-left : 10px solid var(--yellow);
+}
+
+.list-group-item.active,
+.list-group-item.active:hover{
+    background-color:var(--blue);
+    border-color:var(--blue);
+}
+
+.list-group-item:hover{
+    background-color: var(--white);
+}
+
+.conference-wrapper .image{
+    margin-right:1rem;
+
+}
+
+.conference-info{
+    font-size: 1.2rem;
+    color:var(--black);
+}
+.conference .badge{
+    font-size:1rem;
+    font-weight: 400;
+}
+
+.conference .badge-primary{
+    background-color: var(--blue);
+}
+.conference-info .title,
+.conference-info .speaker{
+    font-size:1.2rem;
+    font-weight:700;
+}
+
+.conference-info .speaker span{
+    font-weight:300;
+}
+.speaker-list .speaker-image{
+    overflow:hidden;
+}
+.speaker-list img{
+    transition: transform .3s ease-out;
+}
+.speaker-list img:hover{
+    transform:scale(1.2);
+}
+.speaker-info h3{
+    color:var(--yellow);
+    font-weight:700;
+}
+
+.speaker-info p{
+    font-size: 1rem;
+}
