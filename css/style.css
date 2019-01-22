@@ -46,7 +46,14 @@ h2{
     font-family: var(--font-family-heading);
     font-weight: 900;
     color: var(--purple);
-    font-size:2rem;
+    font-size:3rem;
+}
+
+h3{
+    font-family: var(--font-family-sans-serif);
+    font-weight: 600;
+    color: var(--yellow);
+    font-size:1rem;
 }
 .white-text{
     color:var(--white);
@@ -60,15 +67,27 @@ background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db
 background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 }
-
+.col {
+    float: left;
+    width: 33.33%;
+  }
+.row{
+    margin-top: 0;
+}
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
 .bg-gradient#education{
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b4ddb4+0,83c783+17,52b152+33,008a00+67,005700+83,002400+100;Green+3D+%231 */
-background: #b4ddb4; /* Old browsers */
-background: -moz-linear-gradient(top, #b4ddb4 0%, #83c783 17%, #52b152 33%, #008a00 67%, #005700 83%, #002400 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 83%,#002400 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 83%,#002400 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#002400',GradientType=0 ); /* IE6-9 */
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8989ba+0,8989ba+100;Purple+3D */
+background: #8989ba; /* Old browsers */
+background: -moz-linear-gradient(top, #8989ba 0%, #8989ba 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #8989ba 0%,#8989ba 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #8989ba 0%,#8989ba 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8989ba', endColorstr='#8989ba',GradientType=0 ); /* IE6-9 */
 }
 
 
@@ -264,10 +283,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', end
 .conference-info .speaker span{
     font-weight:300;
 }
+.speaker-list{
+    margin-top: 4 rem;
+    margin-bottom: 4 rem;
+}
 .speaker-list .speaker-image{
- 
     height: 150px;
-    width: 15px;
+    width: 150px;
     
     overflow:hidden;
 }
@@ -287,6 +309,41 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', end
 }
 
 
-.red-text{
-    color:var(--red);
+.black-text{
+    color:var(--black);
+}
+
+h3#course{
+    color:var(--purple);
+    font-size: 10 rem;
+}
+
+
+div.message{
+    padding-top: 0%;
+    padding-bottom: auto;
+    align-self: center;
+}
+
+.school{
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-top:0;
+    overflow:hidden;
+}
+
+.school-image{
+
+    height: 175px;
+    width: 175px;
+}
+.school img{
+
+    max-height: 100%;
+    max-width: auto;
+    transition: transform .3s ease-out;
+}
+.school img:hover{
+    transform:scale(1.2);
 }

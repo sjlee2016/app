@@ -4,10 +4,10 @@ var Post = require("./models/post");
 var Comment   = require("./models/comment");
 var date1 = new Date(2018,9,24),
     date2 = new Date(2018,10,29);
-    date3 = new Date(2018,11,14);
+    date3 = new Date(2019,1,16);
 var data = [
     {
-        title: "교환학생 vs 퍼듀 캡스톤 프로그램 vs 인턴십",
+        title: "앞으로 2",
         image: "california.jpg",
         description :  "내가 개인적으로 느낀 각 프로그램의 장단점",
         author : "Se Jin Lee",
