@@ -12,7 +12,7 @@
  var Post = require("./models/post");
 
  var seedDB = require("./seed");
- //seedDB(); 
+ seedDB(); 
  
  var app = express(),
 	  passport = require("passport"),
@@ -214,7 +214,7 @@ app.post("/login", passport.authenticate("local",
         }
         passport.authenticate("local")(req,res,function(){
 			req.flash("success", "로그인을 했습니다");
-            res.redirect("back");
+            res.redirect("/");
         });
     });
 });
