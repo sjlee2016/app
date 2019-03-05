@@ -1,18 +1,268 @@
-<% include partials/header %>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-    <div id="content">
-    <% if(currentUser){ %> 
-      <h1> Hi, <%= currentUser.username  %> </h1>
-    <% } %> 
-    <h1>Welcome to Se Jin's Website</h1>
-    <h3>A Programmer who writes journals</h3>
-    <hr>
-    <a href="/blog" method="get">  <button class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> Start Reading  </button> </a>
-     </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/font.css" class="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="/public/images/favicon.png">
+
+    <title>Se Jin Codes | Main Page </title>
+</head>
+<div class="navigation">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+    <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">
+
+        </span>
+    </label>
+    <div class="navigation__background">&nbsp;</div>
+    <nav class="navigation__nav">
+        <ul class="navigation__list">
+            <li class="naviation__item"><a href="#about" class="navigation__link">About me</a></li>
+            <li class="naviation__item"><a href="#skills" class="navigation__link">Skills</a></li>
+            <li class="naviation__item"><a href="#projects" class="navigation__link">Projects</a></li>
+            <li class="naviation__item"><a href="/blog" method="get" class="navigation__link">Blog</a></li>
+        </ul>
+    </nav>
 </div>
-</div>
-</div>
-<% include  partials/footer %> 
+
+<body>
+
+    <clipPath id="clip1">
+        <polygon points="15,99 30,87 65,99 85,55 122,57 184,73 198,105
+        199,150 145,159 155,139 126,120 112,138 80,128 39,126
+        24,104" />
+        <header class="header">
+            <!-- <div class="header_logo-box">
+            <img src="img/logo-white.png" alt="Logo" class="header_logo">
+
+        </div> -->
+            <div class="header_text-box">
+                <h1 class="heading-primary">
+                    <span class="heading-primary-main">Se Jin's</span>
+                    <span class="heading-primary-sub">Programming Website</span>
+                </h1>
+                <a href="/blog" method="get" class="btn btn-white btn-animated">
+                    Visit My Blog
+                </a>
+            </div>
+        </header>
+
+    </clipPath>
+    <main>
+        <section class="section-about" id="about">
+            <div class="u-center-text u-margin-bottom-small">
+                <h2 class="heading-secondary">
+                    About Me
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-1-of-2">
+                    <h3 class="heading-tertiary u-margin-bottom-medium">
+                        Who Am I?
+                    </h3>
+                    <p class="paragraph">Self-motivated CS student who is ready to complete any task on time and to the
+                        highest standard
+                    </p>
+                    <p class="paragraph"> with deep knowledge and proficiency in Java, SQL, nodeJS, HTML, CSS and
+                        mobile responsive website development</p>
+
+                    <p class="paragraph">
+                        Seeks the position of backend software intern.
+                    </p>
+                    <a href="https://www.linkedin.com/in/se-jin-lee-89656a163/" class="btn-text">
+                        Go to my linkedin page
+                    </a>
+                </div>
+                <div class="col-1-of-2">
+                    <div class="composition">
+                        <img src="/public/images/me.jpg" alt="Photo 1" class="composition__photo composition__photo-p1">
+                        <img src="/public/images/me4.png" alt="Photo 2" class="composition__photo composition__photo-p2">
+                        <img src="/public/images/greece.jpg" alt="Photo 3" class="composition__photo composition__photo-p3">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-features" id="skills">
+            <div class="row">
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-server2"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">
+                            Backend
+                        </h3>
+                        <div class="feature-box__text">Developed server software utilizing Java to power the backend of
+                            mobile social gaming platform.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-webpage-img-txt"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">
+                            Frontend
+                        </h3>
+                        <div class="feature-box__text">
+                            Have the knowledge and skills of CSS and html to create pages like this
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-todo-pen"></i>
+                        <h3 class="heading-tertiary  u-margin-bottom-small">
+                            Blog writer
+                        </h3>
+                        <div class="feature-box__text">
+                            Although I am not a professional writer, I enjoy writing about my life and experiences in
+                            my blog
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1-of-4">
+                    <div class="feature-box">
+                        <i class="feature-box__icon icon-basic-joypad"></i>
+                        <h3 class="heading-tertiary  u-margin-bottom-small">
+                            A Big Gamer
+                        </h3>
+                        <div class="feature-box__text">
+                            If I am not coding, I will probably be playing video games like Overwatch
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+
+        <section class="section-tours" id="projects">
+            <div class="u-center-text u-margin-bottom-small">
+                <h2 class="heading-secondary">
+                    Most Recent Project or Experiences
+                </h2>
+            </div>
+            <div class="row">
+
+                <div class="col-1-of-3">
+                    <div class="card">
+                        <div class="card__side card__side--front card__side--front-1">
+                            <div class="card__picture card__picture--1">
+                                &nbsp;
+                            </div>
+                            <h4 class="card__heading">
+                                <span class="card__heading-span card__heading-span-1">
+                                    Backend Software Intern
+                                </span>
+                            </h4>
+                            <div class="card__details">
+
+                                <p class="card__details__date">
+                                    <div class="card__details__date__1"> 2018.9.23 ~ Present </div>
+                                </p>
+                                <p class="card__details__desc">Develop server software utilizing PHP to power the backend of PlayPhone mobile social gaming platform.</p>
+
+                            </div>
+                            </div>
+                            <div class="card__side card__side--back card__side--back-1">
+                                    <div class="card__side__detail">
+                                    <ul>My Role<li>Backend Developer</li> </ul>
+                                    <ul> Skills Used <li>Java Spring</li><li>SQL</li> <li>noSQL</li><li>Shell script</li> <li>PHP</li></ul>
+                                    </div>
+                                </div>
+                        
+                    </div>
+                </div>
+                <div class="col-1-of-3">
+                    <div class="card">
+                        <div class="card__side card__side--front card__side--front-2">
+                            <div class="card__picture card__picture--2">
+                                &nbsp;
+                            </div>
+                            <h4 class="card__heading">
+                                <span class="card__heading-span card__heading-span-2">
+                                    Capstone Design @ Purdue
+                                </span>
+                            </h4>
+                            <div class="card__details">
+
+                                <p class="card__details__date">
+                                    <div class="card__details__date__2"> 2018.6 ~ 2018.8 </div>
+                                </p>
+                                <p class="card__details__desc"> A four-person team project to develop a smart parking
+                                    lot security system which remotely allows cars that are registered through an
+                                    android app to enter the parking lot.</p>
+
+                            </div>
+                        </div>
+                        <div class="card__side card__side--back card__side--back-2">
+                            <div class="card__side__detail">
+                            <ul>My Role<li>Developer</li> </ul>
+                            <ul>Skills<li>Java, Python</li><li>Socket Programming</li> <li>IOT Programming</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1-of-3">
+                    <div class="card">
+                        <div class="card__side card__side--front card__side--front-3">
+                            <div class="card__picture card__picture--3">
+                                &nbsp;
+                            </div>
+                            <h4 class="card__heading">
+                                <span class="card__heading-span card__heading-span-3">
+                                    Personal Website
+                                </span>
+                            </h4>
+                            <div class="card__details">
+                                <p class="card__details__date">
+                                    <div class="card__details__date__3"> 2018.8 ~ Present </div>
+                                </p>
+                                <p class="card__details__desc">This personal website is used as my playground to
+                                    practice, learn and explore both my frontend and backend skills</p>
+                            </div>
+                            </div>
+                            <div class="card__side card__side--back card__side--back-3">
+                                    <div class="card__side__detail">
+                                    <ul>My Role<li>Fullstack Developer</li> <li>UI UX Designer</li></ul>
+                                    <ul> Skills <li>JavaScript</li><li>Html</li><li>CSS</li></ul>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="row">
+            <div class="col-1-of-2">
+                <div class="footer__navigation">
+                    <ul class="footer__list">
+                        <li class="footer__item"><a href="#" class="footer__link">Se Jin</a></li>
+                        <li class="footer__item"><a href="#about" class="footer__link">About Me</a></li>
+                        <li class="footer__item"><a href="#skills" class="footer__link">Skills</a></li>
+
+                        <li class="footer__item"><a href="#projects" class="footer__link">Projects</a></li>
+
+                        <li class="footer__item"><a href="/blog" class="footer__link">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-1-of-2">
+                <p class="footer__copyright">
+                    Built by <a href="#" class="footer__link">Se Jin Lee </a>.
+                    Copyright &copy;
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

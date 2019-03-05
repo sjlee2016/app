@@ -1,0 +1,203 @@
+.card {
+
+    // FUNCTIONALITY 
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 50rem;
+
+    &__side {
+        color: #fff;
+        font-size: 2rem;
+
+        height: 50rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+        }
+
+    }
+
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0deg);
+
+
+    }
+
+    // FRONT_SIDE STYLING
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(/public/images/Silicon_valley_title.png);
+
+
+        }
+
+        &--2 {
+
+            background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark), url(/public/images/636318381767705697-LAFBer-02-21-2017-JC-1-A003--2017-02-20-IMG-LAF-Purdue-campus-1-1-P8HG3NKD-L979246150-IMG-LAF-Purdue-campus-1-1-P8HG3NKD-1-.jpg);
+
+        }
+
+        &--3 {
+
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(/public/images/code.jpg);
+
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%;
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+        &-1 {
+            background-image: linear-gradient(to right bottom,
+                rgba($color-secondary-light, 0.85),
+                rgba($color-secondary-dark, 0.85));
+        }
+
+        &-2 {
+            background-image: linear-gradient(to right bottom,
+                rgba($color-primary, 0.85),
+                rgba($color-primary-dark, 0.85));
+        }
+
+        &-3 {
+            background-image: linear-gradient(to right bottom,
+                rgba($color-tertiary-light, 0.85),
+                rgba($color-tertiary-dark, 0.85));
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                color: black;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
+
+
+
+
+        &__desc {
+            font-size: 16px;
+            position: absolute;
+            margin: 2rem 2rem;
+            color: black;
+        }
+
+        &__date {
+            position: absolute;
+            text-align: center;
+            margin: 1rem 1rem;
+            display: inline-block;
+
+            &__1 {
+                color: $color-secondary-dark;
+
+                text-transform: uppercase;
+            }
+
+            &__2 {
+                color: $color-primary-dark;
+
+                text-transform: uppercase;
+            }
+
+            &__3 {
+                color: $color-tertiary-dark;
+
+                text-transform: uppercase;
+            }
+        }
+    }
+
+
+    &__side__detail {
+
+        margin: 5rem 2rem;
+        text-align: center;
+
+        color: white;
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+            padding: 1rem 1rem;
+            li {
+                text-align: center;
+
+                list-style: none;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+
+        }
+    }
+}

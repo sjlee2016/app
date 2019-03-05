@@ -1,0 +1,25 @@
+.form{
+    &_input{
+        font-size:1.5rem;
+        padding:1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white,0.5);
+        border:none;
+        font-family: inherit;
+        border-bottom: 3px solid transparent;
+    }
+
+    &_input:focus
+    &_input:active{
+        outline: none;
+        box-shadow: 0 1 rem 2 rem rgba($color-black, .1);
+        border-bottom: 3px $color-primary;
+    }
+    &_label{
+
+    }
+
+    &_group:not(:last-child){
+        margin-bottom: 2rem;
+    }
+}

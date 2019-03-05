@@ -1,0 +1,24 @@
+
+
+.section-about{
+    background-color: $color-grey-light-1;
+    padding:25rem 0;
+    margin-top: -15%;
+}
+
+.section-features{
+    height: 95vh;
+    margin-top: -15%;
+    background-image: linear-gradient(to right bottom,#6fd5cbb7, #3997a2a9), url(/public/images/code.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+    -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+}
+
+.section-tours{
+    background-color: $color-grey-light-1;
+    padding: 25rem 0 50rem 0;
+    margin-top: -20%;
+}
