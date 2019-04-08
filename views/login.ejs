@@ -1,22 +1,44 @@
 
-<% include partials/post_header %>
 
-<div class="container">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/font.css" class="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+    <title>Se Jin Codes | Login Page </title>
+</head>
+
+<body>
+    <section class="login-page">
         <div class="row">
-        <div class="col-lg-12">
-            <div id="content">
-                <h1> Login ! </h1>
-                  
-<form action="/login" method="post">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Submit </button>
-</form>
-        </div>
-        </div>
-        </div>
-    </div>
+            <div class="login_form">
+                <form action="/login" method="post" class="login__form">
+                    <div class="login_form_group">
+                        <div class="u-margin-bottom-small">
+                            <h2 class="heading-secondary">
+                                Login
+                            </h2>
+                        </div>
+                        <input type="username" class="form_input" placeholder="Username" id="username" require>
+                        <label for="username" class="form_label">Username</label>
+                        <input type="password" class="form_input" placeholder="password" id="password" require>
+                        <label for="password" class="form_label">Password</label>
+                        <button class="btn btn-black btn-animated">
+                                Login</button>
+                        
+                    </div>
+                </form>
+            </div>
 
+        </div>
+    </section>
+</body>
 
-<% include partials/post_footer %>
-
+</html>

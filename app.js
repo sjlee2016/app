@@ -12,8 +12,7 @@
  var Post = require("./models/post");
 
  var seedDB = require("./seed");
- seedDB(); 
- 
+ seedDB();
  var app = express(),
 	  passport = require("passport"),
 	  LocalStrategy = require("passport-local"),
@@ -34,7 +33,7 @@
 	resave : false,
 	saveUninitialized: false
 })); 
-
+ 
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));

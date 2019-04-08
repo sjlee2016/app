@@ -4,12 +4,12 @@ var Post = require("./models/post");
 var Comment   = require("./models/comment");
 var date1 = new Date(2018,9,24),
     date2 = new Date(2018,10,29);
-    date3 = new Date(2019,0,23);
+    date3 = new Date(2019,3,7);
 var data = [
     {
-        title: "백엔드 인턴은 무엇을 할까?",
-        image: "internships.jpg",
-        description :  "2018년 회사에서 하고, 배운 것",
+        title: "실리콘벨리 인턴이라고 다 행복할까?",
+        image: "wage.jpg",
+        description :  "7개월동안 겪은 불편한 점들",
         author : "Se Jin Lee",
         posted : date3,
         formated_date : moment(date3).format('YYYY-MM-DD') 
